@@ -1,0 +1,17 @@
+
+{% load widget_tweaks %}
+
+<div class="input-group {% if delivery_form.delivery_method.errors %}has-error{% endif %} col-xs-12">
+    {{ delivery_form.delivery_method.label_tag }} *
+    {{ delivery_form.delivery_method|add_class:"form-control" }}
+</div>
+
+<div class="input-group {% if delivery_form.city.errors %}has-error{% endif %} col-xs-12">
+    {{ delivery_form.city.label_tag }} *
+    {{ delivery_form.city|add_class:"form-control" }}
+</div>
+
+<div class="input-group {% if delivery_form.warehouse.errors %}has-error{% endif %} col-xs-12">
+    {{ delivery_form.warehouse.label_tag }} *
+    {{ delivery_form.warehouse|add_class:"form-control" }}
+</div>

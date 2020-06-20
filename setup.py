@@ -14,7 +14,6 @@ setup(
     name='django-mp-delivery',
     version=__version__,
     description='Django delivery app',
-    long_description=open('README.md').read(),
     author='Paul Maigutyak',
     author_email='pmaigutyak@gmail.com',
     url=url,

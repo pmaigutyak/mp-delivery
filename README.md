@@ -37,15 +37,34 @@ from delivery.models import DeliveryMethodField
 delivery_method = DeliveryMethodField()
 ```
 
+### View
+```
+order.delivery_method = form.fields['delivery'].get_delivery_method()
+order.address = form.fields['delivery'].get_address()
+```
+
+### Form
+```
+from delivery.fields import DeliveryFormField
+ 
+class CheckoutForm(forms.ModelForm):
+ 
+    delivery = DeliveryFormField()
+ 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+ 
+        self.fields['delivery'].init_form(*args, **kwargs)
+```
 
 ### Template
 ```
-{% include 'delivery/form.html' %}
+{{ form.delivery }}
  
  
 {% block js %}
     {{ block.super }}
  
-    {% include 'delivery/js.html' %}
+    {{ form.fields.delivery.media }}
 {% endblock %}
 ```

@@ -24,11 +24,3 @@ class DeliveryForm(forms.Form):
     @property
     def delivery_methods(self):
         return {m.code: m.id for m in DeliveryMethod.objects.all()}
-
-    def get_delivery_method(self):
-        return self.cleaned_data['delivery_method']
-
-    def get_address(self):
-        return '{}, {}'.format(
-            self.cleaned_data['warehouse'],
-            self.cleaned_data['city'])

@@ -13,4 +13,4 @@ storage.db
 *.crt
 media
 dist
-django_delivery.egg-info
+django_mp_delivery.egg-info

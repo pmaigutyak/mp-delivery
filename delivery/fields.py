@@ -1,7 +1,7 @@
 
 from django.conf import settings
 from django.forms import Field, ValidationError
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.template.loader import render_to_string
 
 from delivery.widgets import DeliveryFormFieldWidget

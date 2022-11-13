@@ -9,7 +9,10 @@ class DeliveryForm(forms.Form):
 
     delivery_method = forms.ModelChoiceField(
         label=_('Delivery method'),
-        queryset=DeliveryMethod.objects.all())
+        queryset=DeliveryMethod.objects.filter(
+            # Hotfix to leave only two methods
+            code__in=['self_delivery', 'novaposhta']
+        ))
 
     city = forms.CharField(
         label=_('City'),

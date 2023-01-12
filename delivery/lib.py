@@ -32,14 +32,22 @@ def search_warehouses(delivery_method_id, city, query, limit=None):
     return queryset
 
 
-def search_cities(query, limit=None):
+def search_cities(query, limit=10):
 
     if not query:
         return []
-
-    queryset = model_search(query, City.objects.all(), ['name'])
-
-    if limit is not None:
-        return queryset[:limit]
-
-    return queryset
+    
+    items = list(
+        City.objects.filter(name__istartswith=query).order_by("name")[:limit]
+    )
+    
+    if len(items) < limit:
+        items += list(
+            model_search(
+                query, 
+                City.objects.exclude(id__in=[i.id for i in items]),
+                ['name']
+            )
+        )
+    
+    return items[:limit]

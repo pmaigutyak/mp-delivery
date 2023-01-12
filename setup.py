@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 with open('requirements.txt') as f:
     requires = f.read().splitlines()
 
-version = '1.0.1'
+version = '1.0.2'
 url = 'https://github.com/pmaigutyak/mp-delivery'
 
 
